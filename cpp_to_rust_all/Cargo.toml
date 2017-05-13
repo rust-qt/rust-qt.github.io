@@ -1,0 +1,14 @@
+[package]
+name = "cpp_to_rust_all"
+version = "0.1.0"
+authors = ["Pavel Strakhov <ri@idzaaus.org>"]
+
+[dependencies]
+cpp_to_rust_generator = { path = "../../cpp_to_rust/cpp_to_rust/cpp_to_rust_generator" }
+cpp_to_rust_build_tools = { path = "../../cpp_to_rust/cpp_to_rust/cpp_to_rust_build_tools" }
+cpp_to_rust_common = { path = "../../cpp_to_rust/cpp_to_rust/cpp_to_rust_common" }
+cpp_utils = { path = "../../cpp_to_rust/cpp_to_rust/cpp_utils" }
+qt_build_tools = { path = "../../cpp_to_rust/qt_generator/qt_build_tools" }
+qt_generator_common = { path = "../../cpp_to_rust/qt_generator/qt_generator_common" }
+
+
