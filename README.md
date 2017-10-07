@@ -12,5 +12,5 @@ Call the script like this:
 
 ```
 cd rust-qt.github.io_script
-./generate_doc.bash
+./update_docs.bash
 ```

@@ -33,9 +33,9 @@ mkdir "$OUT_DIR/src"
 
 find target/doc/* -maxdepth 0 -type f -exec cp {} "$OUT_DIR/" \;
 
-grep  "var searchIndex\|initSearch\|searchIndex\[\"\(cpp_utils\|qt_core\|qt_gui\|qt_widgets\|qt_ui_tools\)\"\]" target/doc/search-index.js > "$OUT_DIR/search-index.js"
-cp -r target/doc/{cpp_utils,qt_core,qt_gui,qt_widgets,qt_ui_tools} "$OUT_DIR/"
-cp -r target/doc/src/{cpp_utils,qt_core,qt_gui,qt_widgets,qt_ui_tools} "$OUT_DIR/src/"
+grep  "var searchIndex\|initSearch\|searchIndex\[\"\(cpp_utils\|qt_core\|qt_gui\|qt_widgets\|qt_ui_tools\|qt_3d_core\|qt_3d_render\|qt_3d_input\|qt_3d_logic\|qt_3d_extras\)\"\]" target/doc/search-index.js > "$OUT_DIR/search-index.js"
+cp -r target/doc/{cpp_utils,qt_core,qt_gui,qt_widgets,qt_ui_tools,qt_3d_core,qt_3d_render,qt_3d_input,qt_3d_logic,qt_3d_extras} "$OUT_DIR/"
+cp -r target/doc/src/{cpp_utils,qt_core,qt_gui,qt_widgets,qt_ui_tools,qt_3d_core,qt_3d_render,qt_3d_input,qt_3d_logic,qt_3d_extras} "$OUT_DIR/src/"
 
 echo "Publishing changes..."
 cd "$REPO"
