@@ -6,6 +6,9 @@ header {
 	h1 {
 		font-size: 140%;
 		display: inline-block;
+		a {
+			color: var(--custom-font-color, #fff);
+		}
 	}
 
 	.version {

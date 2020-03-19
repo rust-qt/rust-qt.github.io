@@ -1,4 +1,22 @@
 {{- define "main" -}}
 <h1>{{ .Title }}</h1>
 {{- .Content -}}
+<div class="edit-meta">
+	Published on {{ .PublishDate.Format ( $.Site.Params.dateformat | default "2 Jan 2006") -}}
+</div>
+<nav class="pagination">
+	{{if .NextInSection}}
+		<a href="{{.NextInSection.Permalink }}" class="nav nav-prev">
+			<i class="fas fa-arrow-left" aria-hidden="true"></i> 
+			Earlier - {{ .NextInSection.Title }}
+		</a>
+	{{end}}
+
+	{{if .PrevInSection}}
+		<a href="{{ .PrevInSection.Permalink }}" class="nav nav-next">
+			Later - {{ .PrevInSection.Title }}
+			<i class="fas fa-arrow-right" aria-hidden="true"></i>
+		</a>
+	{{end}}
+</nav>
 {{- end -}}
