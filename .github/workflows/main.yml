@@ -11,11 +11,9 @@ jobs:
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@master
-        with:
-          submodules: true
+        uses: actions/checkout@v2.0.0
       - name: Publish Site
-        uses: chabad360/hugo-gh-pages@v1.1
+        uses: chabad360/hugo-gh-pages@bfd5d2fa3abefe9ac3837c6aa9b685122d42feda
         with:
           githubToken: ${{ secrets.PERSONAL_TOKEN }}
           branch: master
