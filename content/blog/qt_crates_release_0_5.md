@@ -1,7 +1,9 @@
 ---
 title: "Qt crates release 0.5"
-date: 2020-03-19
+date: 2020-03-21
 ---
+Qt crates (`qt_core`, `qt_gui`, `qt_widgets`, `qt_ui_tools`, `qt_3d_core`, `qt_3d_render`, `qt_3d_input`, `qt_3d_logic`, `qt_3d_extras`, `qt_charts`, `qt_qml`) provide unsafe API to [Qt](https://www.qt.io/) for Rust applications. Qt is a cross-platform framework for creating GUIs and applications. See [Rust + Qt guide](/qt/) for a step-by-step introduction and [rust-qt/examples](https://github.com/rust-qt/examples) repository for code examples.
+
 New features:
 
 <!--more-->
@@ -16,7 +18,7 @@ signal.connect(timer.slot_start());
 signal.emit(100);
 ```
 - Slot wrappers can now have a parent object, so they can be kept alive without storing them explicitly.
-- New smart pointers [QPtr](https://docs.rs/qt_core/0.5.0-alpha.2/qt_core/struct.QPtr.html) and [QBox](https://docs.rs/qt_core/0.5.0-alpha.2/qt_core/struct.QBox.html) are added. Functions that return `QObject`-based objects now use `QPtr` and `QBox` in their return types. These pointers automatically become null when the referenced object is deleted. This prevents many cases of accidental use-after-free:
+- New smart pointers [QPtr](https://docs.rs/qt_core/0.5.0/qt_core/struct.QPtr.html) and [QBox](https://docs.rs/qt_core/0.5.0/qt_core/struct.QBox.html) are added. Functions that return `QObject`-based objects now use `QPtr` and `QBox` in their return types. These pointers automatically become null when the referenced object is deleted. This prevents many cases of accidental use-after-free:
 ```rust
 let obj = QObject::new_0a();
 let obj2 = QObject::new_1a(&obj);
@@ -36,11 +38,11 @@ layout.add_widget(&line_edit);
 // so QBox won't delete them at the end of scope.
 ```
 - Rust wrappers for C++ class methods now always require `&self`, regardless of C++ constness. This behavior better matches the Rust semantics of references (exclusive access is generally not required for calling these methods) and ensures better interaction with the borrow checker.
-- It's now possible to embed [Qt resources](https://doc.qt.io/qt-5/resources.html) into executables using [qt_ritual_build::add_resources](https://docs.rs/qt_ritual_build/0.5.0-alpha.1/qt_ritual_build/fn.add_resources.html) and [qt_core::q_init_resource](https://docs.rs/qt_core/0.5.0-alpha.2/qt_core/macro.q_init_resource.html).
-- New [qt_core::slot](https://docs.rs/qt_core/0.5.0-alpha.2/qt_core/attr.slot.html) attribute macro provides a convenient way to use struct methods as slots.
-- [qt_ui_tools::ui_form](https://docs.rs/qt_ui_tools/0.5.0-alpha.2/qt_ui_tools/attr.ui_form.html) attribute macro simplifies loading a UI form file and accessing its objects.
-- It's now possible to choose connection type using [Signal::connect_with_type](https://docs.rs/qt_core/0.5.0-alpha.2/qt_core/struct.Signal.html#method.connect_with_type) function.
-- It's now possible to check if the connection was successful using [Connection::is_valid](https://docs.rs/qt_core/0.5.0-alpha.2/qt_core/q_meta_object/struct.Connection.html#method.is_valid).
+- It's now possible to embed [Qt resources](https://doc.qt.io/qt-5/resources.html) into executables using [qt_ritual_build::add_resources](https://docs.rs/qt_ritual_build/0.5.0/qt_ritual_build/fn.add_resources.html) and [qt_core::q_init_resource](https://docs.rs/qt_core/0.5.0/qt_core/macro.q_init_resource.html).
+- New [qt_core::slot](https://docs.rs/qt_core/0.5.0/qt_core/attr.slot.html) attribute macro provides a convenient way to use struct methods as slots.
+- [qt_ui_tools::ui_form](https://docs.rs/qt_ui_tools/0.5.0/qt_ui_tools/attr.ui_form.html) attribute macro simplifies loading a UI form file and accessing its objects.
+- It's now possible to choose connection type using [Signal::connect_with_type](https://docs.rs/qt_core/0.5.0/qt_core/struct.Signal.html#method.connect_with_type) function.
+- It's now possible to check if the connection was successful using [Connection::is_valid](https://docs.rs/qt_core/0.5.0/qt_core/q_meta_object/struct.Connection.html#method.is_valid).
 
 Migration notes:
 
@@ -52,4 +54,3 @@ Migration notes:
 - `qt_core::Slot` is renamed to `SlotNoArgs`.
 - `Ptr` and `Ref` smart pointers are now only used for class objects. All other pointers and references are now represented as raw pointers in Rust.
 - `cpp_core::SliceAsBeginEnd` is reworked into `cpp_core::EndPtr`.
- 
