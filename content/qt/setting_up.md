@@ -20,9 +20,22 @@ You can install Qt on any OS using the [official installer](https://www.qt.io/do
 
 On Linux and macOS, you can also install Qt development packages from the repository (or `brew`).
 
-If Qt is not installed system-wide, you need to set up `PATH` to point at the directory where `qmake` executable is stored. On Linux and macOS:
+If Qt is not installed system-wide, you need to set up `PATH` to point at the directory where `qmake` executable is stored. You may also need to set up variables that allow the dynamic linker to find Qt libraries at runtime:
+
+On Linux:
 ```bash
-export PATH="/usr/local/opt/qt/bin:$PATH"
+export PATH="~/Qt/5.14.0/gcc_64/bin:$PATH"
+export LD_LIBRARY_PATH="~/Qt/5.14.0/gcc_64/lib:$PATH"
+```
+
+On macOS:
+
+```bash
+export PATH="~/Qt/5.14.0/gcc_64/bin:$PATH"
+# If Qt is build as libraries:
+export DYLD_LIBRARY_PATH=~/Qt/5.14.0/clang_64/lib:$DYLD_LIBRARY_PATH
+# If Qt is build as frameworks:
+export DYLD_FRAMEWORK_PATH=~/Qt/5.14.0/clang_64/lib:$DYLD_FRAMEWORK_PATH
 ```
 
 On Windows (in the VS command prompt):
