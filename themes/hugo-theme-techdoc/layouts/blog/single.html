@@ -1,9 +1,7 @@
 {{- define "main" -}}
 <h1>{{ .Title }}</h1>
+<div><time>{{ .Date.Format "2 Jan 2006" }}</time></div>
 {{- .Content -}}
-<div class="edit-meta">
-	Published on {{ .PublishDate.Format ( $.Site.Params.dateformat | default "2 Jan 2006") -}}
-</div>
 <nav class="pagination">
 	{{if .NextInSection}}
 		<a href="{{.NextInSection.Permalink }}" class="nav nav-prev">
