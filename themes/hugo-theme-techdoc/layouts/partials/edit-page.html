@@ -1,4 +1,4 @@
 {{- with .Site.Params.github_doc_repository -}}
 {{ $repo := . }}
-{{- with $.File -}}<a href="{{ $repo }}/edit/master/content/{{ .Path }}" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a>{{- end -}}
+{{- with $.File -}}<a href="{{ $repo }}/edit/source/content/{{ .Path }}" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a>{{- end -}}
 {{- end -}}

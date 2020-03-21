@@ -30,7 +30,7 @@ github_repository = "https://github.com/rust-qt/ritual"
 
 # Documentation repository section
 # documentation repository (set edit link to documentation repository)
-github_doc_repository = "https://github.com/rust-qt/website"
+github_doc_repository = "https://github.com/rust-qt/rust-qt.github.io"
 
 # Analytic section
 #google_analytics_id = "" # Your Google Analytics tracking id
