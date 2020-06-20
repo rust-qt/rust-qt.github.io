@@ -87,6 +87,13 @@ release\standarddialogs.exe
 
 Finally, you can try to build the provided examples:
 ```bash
+git clone https://github.com/rust-qt/examples
 cd examples
-cargo run --bin form1
+cargo run --bin basic_form
 ```
+
+If you use MSYS2 and you get the following error: "The procedure entry point inflateValidate could not be located in the dynamic link library C:\msys64\mingw64\bin\libpng16-16.dll", it's usually caused by some other zlib1.dll on your PATH. You can verify this from MSYS2 shell using the following commmand:
+```bash
+which zlib1.dll
+```
+To fix this, you either need to fix your PATH or copy zlib1.dll from your `C:\msys64\mingw64\bin` directory to your `target\debug` and `target\release` directories.
