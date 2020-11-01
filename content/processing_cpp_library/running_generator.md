@@ -4,9 +4,9 @@ weight: 2
 ---
 ## Creating the generator
 
-Create a new binary Rust crate and add `ritual` as a dependency. In the `main` function, you need to construct a `ritual::config::GlobalConfig` and pass it to `ritual::cli::run_from_args`. `GlobalConfig` allows you to process multiple libraries (or parts of a library as separate crates) in a single run, but in the [simple case](src/main.rs) it just contains a function that creates a `Config` for your library.
+Create a new binary Rust crate and add `ritual` as a dependency. In the `main` function, you need to construct a `ritual::config::GlobalConfig` and pass it to `ritual::cli::run_from_args`. `GlobalConfig` allows you to process multiple libraries (or parts of a library as separate crates) in a single run, but in the [simple case](https://github.com/rust-qt/generator-example/blob/master/src/main.rs) it just contains a function that creates a `Config` for your library.
 
-`Config` is the main way of configuring ritual. You can use it to set up every property the generator supports. It also allows you to set up hooks that run in particular points of the processing and allow you to filter or alter the results programmatically. See the documentation of `Config` and [this example](src/main.rs) for more information.
+`Config` is the main way of configuring ritual. You can use it to set up every property the generator supports. It also allows you to set up hooks that run in particular points of the processing and allow you to filter or alter the results programmatically. See the documentation of `Config` and [this example](https://github.com/rust-qt/generator-example/blob/master/src/main.rs) for more information.
 
 ## Running the generator
  

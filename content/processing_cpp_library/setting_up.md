@@ -6,13 +6,13 @@ weight: 1
 
 To make sure the parsing results are consistent and reproducible, it's recommended to use a reproducible environment, such as provided by `docker`. This will also help your future contributors.
 
-Ritual provides a [Dockerfile](https://github.com/rust-qt/ritual/blob/master/docker.builder.dockerfile) containing its dependencies. This image is published at [riateche/ritual_builder](https://hub.docker.com/r/riateche/ritual_builder). If the published version isn't suitable, you can build the image locally:
+Ritual provides a [Dockerfile](https://github.com/rust-qt/ritual/blob/master/scripts/docker/builder.dockerfile) containing its dependencies. This image is published at [riateche/ritual_builder](https://hub.docker.com/r/riateche/ritual_builder). If the published version isn't suitable, you can build the image locally:
 ```bash
 cd ritual
-docker build . -f docker.builder.dockerfile -t riateche/ritual_builder
+docker build . -f scripts/docker/builder.dockerfile -t riateche/ritual_builder
 ``` 
 
-Use this image as a base and create your own image that installs and sets up the C++ library you want to work with. See [Dockerfile](Dockerfile) for an example.
+Use this image as a base and create your own image that installs and sets up the C++ library you want to work with. See [Dockerfile](https://github.com/rust-qt/generator-example/blob/master/Dockerfile) for an example.
 
 Note that the image contains only the environment. No pre-built ritual artifacts are included. This allows you to edit the source code of your generator and re-run it without the slow process of rebuilding the docker image. You can use `cargo` to run the generator, just like you would normally do it on the host system.
 
